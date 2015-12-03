@@ -11,15 +11,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
-    // <script type="text/x-mathjax-config">
-    //   MathJax.Hub.Config({
-    //     tex2jax: {
-    //       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-    //       processEscapes: true
-    //     }
-    //   });
-    // </script>
-
     <script type="text/javascript"
       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
@@ -62,238 +53,48 @@
 
   <div class="row">
     <div class="large-12 columns">
-      <h4>Background</h4>
+      <h4>The Model</h4>
 
       <p>Suppose that there are two types of workers: type <em>H</em> and type <em>L</em>. Type <em>H</em> workers are more productive than type <em>L</em> workers <em>and</em> type <em>H</em> workers find it less costly to obtain a given level of education <em>e</em>. Specifically, the marginal products of labor for each type of worker is:
         $$m_H(e) = a_H e$$
-        $$m_L(e) = a_L e$$
+        $$m_L(e) = a_L e,$$
       where \(a_L < a_H\) are constants. And the costs to each type of obtaining a given level of education \(e\) is:
         $$c_H(e) = k_H e^2$$
-        $$c_L(e) = k_L e^2$$
+        $$c_L(e) = k_L e^2,$$
+      where \(k_L > k_H\). A worker's type is only observable by the worker but the amount of education a worker obtains <em>is</em> observed by a potential employer. So while a worker's wage cannot depend directly on that worker's type, the wage can be a function of that worker's chosen level of education. We consider two classes of equilibria: Pooling and separating.</p>
 
-      </p>
+    <h4>Pooling Equilibria</h4>
 
-      <!-- <video width="100%" controls loop >
+    <p>A <strong>pooling equilibrium</strong> in ths model is a threshold value of education \(\bar{e}\) such that:
+      <ol>
+        <li>If a worker obtains \(e<\bar{e}\) units of education, then employers <em>believe</em> that worker is type L and pay that worker a wage \(w(e) = a_Le\).</li>
+        <li>If a worker obtains \(e\geqslant\bar{e}\) units of education, then employers <em>believe</em> that worker is type H with probability \(p\) and pay that worker a wage \(w(\bar{e}) = \bar{a} \bar{e} = \left( pa_H + (1-p)a_L\right)\bar{e} \).</li>
+      </ol>
+    </p>
+
+      <video width="100%" controls loop >
                 <source src="video/signalingPooling.mp4" type="video/mp4">
                 <source src="video/signalingPooling.ogv" type="video/ogg">
                 Your browser does not support the video tag.
-              </video> -->
+              </video>
+
+    <h4>Separating Equilibria</h4>
+
+    <p>A <strong>pooling equilibrium</strong> in ths model is a threshold value of education \(\bar{e}\) such that:
+      <ol>
+        <li>If a worker obtains \(e<\bar{e}\) units of education, then employers <em>believe</em> that worker is type L and pay that worker a wage \(w(e) = a_Le\).</li>
+        <li>If a worker obtains \(e\geqslant\bar{e}\) units of education, then employers <em>believe</em> that worker is type H and pay that worker a wage \(w(e) = a_H e  \).</li>
+      </ol>
+    </p>
+
+      <video width="100%" controls loop >
+                <source src="video/signalingSeparating.mp4" type="video/mp4">
+                <source src="video/signalingSeparating.ogv" type="video/ogg">
+                Your browser does not support the video tag.
+              </video>
 
 
-      <p>The basic New-Keynesian (NK) Model is a simple model of the business cycle model that accounts for the well-documented upward-sloping relationship between real economic activity and inflation over short time horizons. The basic elements of the NK model can be expressed with four equations: 
-        $$y_t = E_t y_{t+1}  - \frac{1}{\sigma}(r_{t+1} -\bar{r}) + g_t$$
-        $$\pi_t - \pi^T = \beta (E_t \pi_{t+1} - \pi^T )- \kappa(y_t -\bar{y}) + u_t$$
-        $$i_{t+1} = r_{t+1} + E_t\pi_{t+1}$$
-        $$i_{t+1} = \bar{r} + \pi^T + \phi_{\pi} (\pi_t- \pi^T) + \phi_{y}(y_t-\bar{y}),$$
-      where \(y_t\) denotes real GDP, \(\pi_t\) denotes inflation, \(r_t\) is the real interest rate, and \(i_t\) is the nominal interest rate. The first equation is the dynamic IS specification that links the demand for goods in the current quarter with national income expected in the following quarter and to the current real interest rate. The second equation is a standard NK Phillips curve: the deviation in inflation form the central bank's target \(\pi^T\) is dependent on the expected future deviation of inflation from target and to the output gap \(y_t - \bar{y}\). The third equation is the Fisher equation that defines the real interst rate as the nominal interest rate less the inflation rate.<p>
-
-      <p>The model has two exogenous variables \(g_t\) and \(u_t\) that relfect exogenous variation in the demand for goods and exogenous variation in the rate of inflation. \(g_t\) and \(u_t\) are AR(1) processes:
-        $$g_t = \rho_g g_{t-1} + \epsilon^g_t$$
-        $$u_t = \rho_u u_{t-1} + \epsilon^u_t,$$
-      \(\epsilon^g_t\) and \(\epsilon^u_t\) are white noise processes with standard deviations \(\sigma_g\) and \(\sigma_u\). For more information about AR(1) processes, check out my AR(1) simulation page.
-
-      </p>
-
-      <p>In the simulation exercise below, some parameters of the model are fixed while others may be chosen the by the user. The paramteres that are fixed for the simulation are:</p>
-
-      <p>
-        <table>
-          <thead>
-            <tr>
-              <th width="200">Parameter</th>
-              <th width="375">Description</th>
-              <th width="200">Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>\(1/\sigma\)</td>
-              <td>Household intertemporal elasticity of substitution</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>\(\bar{r}\)</td>
-              <td>Steady state real rate of interest</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>\(\beta\)</td>
-              <td>Household subjective discount rate</td>
-              <td>\(\exp(-2)\)</td>
-            </tr>
-            <tr>
-              <td>\(\kappa\)</td>
-              <td>Inflation sensitivity to the output gap</td>
-              <td>0.25</td>
-            </tr>
-            <tr>
-              <td>\(\bar{y}\)</td>
-              <td>The natural rate of output</td>
-              <td>100</td>
-            </tr>
-          </tbody>
-        </table>
-      </p>
-
-      <p>The parameters that must be chosen by the user are:</P>
-
-      <p>
-        <table>
-          <thead>
-            <tr>
-              <th width="200">Parameter</th>
-              <th width="375">Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>\(\pi^T\)</td>
-              <td>Central bank inflation target</td>
-            </tr>
-            <tr>
-              <td>\(\phi_{\pi}\)</td>
-              <td>Policy rule weight on inflation deviation from target</td>
-            </tr>
-            <tr>
-              <td>\(\phi_y\)</td>
-              <td>Policy rule weight on output gap</td>
-            </tr>
-            <tr>
-              <td>\(\rho_g\)</td>
-              <td>Autocorrelation of exogenous demand component</td>
-            </tr>
-            <tr>
-              <td>\(\sigma_g\)</td>
-              <td>Standard deviation of demand shock</td>
-            </tr>
-            <tr>
-              <td>\(\rho_{u}\)</td>
-              <td>Autocorrelation of exogenous inflation component</td>
-            </tr>
-            <tr>
-              <td>\(\sigma_u\)</td>
-              <td>Standard deviation of inflation shock</td>
-            </tr>
-          </tbody>
-        </table>
-      </p>
-
-      
-      <p>For more information, please see my <a href="http://www.briancjenkins.com/pdf/Dynamic_ASAD_Notes.pdf">notes about this model</a> and a companion set of <a href="http://www.briancjenkins.com/pdf/Slides_009c_Dynamic_AS-AD_Handout.pdf">lecture slides</a>.</p>
-
-      <h4>Instructions</h4>
-      <p>Choose the number of periods for your simulation. Choose values for the monetary policy parameters \(\pi^T\), \(\phi_{\pi}\), and \(\phi_{y}\). Then choose values for the parameters of the exogenous demand and inflation processes. Select which type of simulation that you wish to perform and which types of shocks to include in your simulation:
-        <ol>
-          <li><strong>Stochastic simulation</strong>: Random values for the exogenous processes selected will be generated.</li> 
-          <li><strong>Impulse response</strong>: A one-standard deviation shock to the exogenous process selected. If you select <em>Monetary policy</em>, then the simulation will be computed for a one-percent shock to the monetary policy rule with an autocorrelation of 0.5.</li>
-        </ol>
-      Finally, note that the policy parameters that you choose have to induce a <em>stable</em> equilibrium. This means that the following condition must be satisfied:
-        $$\kappa(\phi_{\pi}-1)+(1-\beta)\phi_y > 0.$$
-      You will receive a warning if the values that you input produce an unstable result. You will not be allowed to destroy the economy.
-      <hr/></p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="large-12 columns">
-
-      <form id="ParameterInput">
-        <fieldset>
-          <legend>Parameters</legend>
-          <div class="row">
-            <div class="large-4 columns">
-              <label for="piT"> Inflation target \(\pi^T\)</em></label>
-              <input id="piT" type="number" step="any" value="2">
-            </div>
-            <div class="large-4 columns">
-              <label for="rhoG">Autocorrelation of exogenous demand \(\rho_g\)</label>
-              <input id="rhoG" type="number" step="any" value="0.5">
-            </div>
-            <div class="large-4 columns">
-              <label for="rhoU">Autocorrelation of exogenous inflation \(\rho_u\)</label>
-              <input id="rhoU" type="number" step="any" value="0.5">
-            </div>
-            <div class="large-4 columns">
-              <label for="periods">Number of periods to simulate</label>
-              <input id="periods" type="number" step="1" min="2" value="25">
-            </div>
-            <div class="large-4 columns">
-              <label for="sigEpsG">Standard deviation of demand shock \(\sigma_g\)</label>
-              <input id="sigEpsG" type="number" step="any" min="0" value="1">
-            </div>
-            <div class="large-4 columns">
-              <label for="sigEpsU">Standard deviation of inflation shock \(\sigma_u\)</label>
-              <input id="sigEpsU" type="number" step="any" min="0" value="1">
-            </div>
-            <div class="large-4 columns">
-              <label for="phiPi">Weight on inflation \(\phi_{\pi}\)</label>
-              <input id="phiPi" type="number" step="any" min="0" value="1.5">
-            </div>
-            <div class="large-4 columns">
-              <label for="phiY">Weight on output \(\phi_y\)</label>
-              <input id="phiY" type="number" step="any" min="0" value="0.5">
-            </div>
-            <div class="large-4 columns">
-              &nbsp;
-            </div>
-
-        </fieldset>
-        <fieldset>
-          <legend>Simulation</legend>
-          <div class="row">
-            <div class="large-4 columns">
-              <label><strong>Choose simulation type:</strong></label>
-              <input type="radio" name="simType" value="stoch" id="stochSim" checked><label for="stochSim">Stochastic</label>
-              <input type="radio" name="simType" value="ir" id="irSim"><label for="irSim">Impulse response</label>
-            </div>
-            <div class="row">
-            <div class="large-6 columns">
-              <label><strong>Shocks to include:</strong></label>
-              <input type="checkbox" name="irType" value="irDemand" id="irDemand" checked><label for="irDemand" checked>Demand</label>
-              <input type="checkbox" name="irType" value="irPi" id="irPi" checked><label for="irPi">Inflation</label>
-              <input type="checkbox" name="irType" value="irInterest" id="irInterest"><label for="irInterest">Monetary policy (IR only)</label>
-            </div>
-            <div class="large-4 columns">
-              &nbsp;
-            </div>
-          </row>
-        </fieldset>
-
-
-        <div class="large-4 columns">
-          <button type="submit" class="small button" onclick="window.location.href='#plotBox'">Submit</button>  
-        </div>
-        <div class="large-4 columns">
-          <button type="reload" class="small button" onclick="reloadFunction()">Reset</button>
-        </div>
-        <div class="large-4 columns">
-          &nbsp;
-        </div>
-      </form>
-      <hr/>
-    </div>
-  </div>
   
-  <div class = "row">
-  <div class="plotBox" id="plotBox">
-    <div class="column21">
-      <div id="shockProcesses" class="plot"></div>
-    </div>
-    <div class="column21">
-      <div id="iProcess" class="plot"></div>
-    </div>
-  </div>
-  </div>
-  <div class = "row">
-  <div class="plotBox" id="plotBox">
-    <div class="column21">
-      <div id="piProcess" class="plot"></div>
-    </div>
-    <div class="column21">
-      <div id="yProcess" class="plot"></div>
-    </div>
-  </div>
-  </div>
 
   
   <footer class="row">
@@ -301,7 +102,7 @@
       <hr/>
       <div class="row">
         <div class="large-12 columns">
-          <p>Created by <a href="http://www.briancjenkins.com">Brian C Jenkins</a> of the Department of Economics, UC Irvine and <a href="http://pmac.io">Paul McLanahan</a> of <a href="https://www.mozilla.org">Mozilla</a>. Please send feedback to Brian by <a href="mailto:bcjenkin@uci.edu">email</a>.</p>
+          <p>Created by <a href="http://www.briancjenkins.com">Brian C Jenkins</a> of the Department of Economics, UC Irvine. Please send feedback to Brian by <a href="mailto:bcjenkin@uci.edu">email</a>.</p>
         </div>
       </div>
     </div>

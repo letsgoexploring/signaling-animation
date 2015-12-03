@@ -58,7 +58,7 @@ line3, = ax1.plot([], [],'ok', lw=4)
 # ax1.set_ylim(yMinH,yMaxH)
 ax1.set_xlabel('Level of education ($e$)')
 ax1.set_ylabel('Utility ($u_H$)')
-plt.legend(['$\\bar{a}e - c_H e^2$','$a_L e - c_H e^2$','$u_H(e)$'],loc='upper right',fontsize=20)
+plt.legend(['$\\bar{a}e - k_H e^2$','$a_L e - k_H e^2$','$u_H(e)$'],loc='upper right',fontsize=20)
 ax1.set_title('Utility for a Type H Worker',fontsize=20)
 
 # Initialize the shaded rectangle

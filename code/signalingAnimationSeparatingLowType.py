@@ -57,7 +57,7 @@ ax1.set_xlim(eMin, eMax)
 ax1.set_ylim(yMinL,yMaxL)
 ax1.set_xlabel('Level of education ($e$)')
 ax1.set_ylabel('Utility ($u_L$)')
-plt.legend(['$a_He - c_L e^2$','$a_L e - c_L e^2$','$u_L(e)$'],loc='upper right',fontsize=20)
+plt.legend(['$a_He - k_L e^2$','$a_L e - k_L e^2$','$u_L(e)$'],loc='upper right',fontsize=20)
 ax1.set_title('Utility for a Type L Worker',fontsize=20)
 
 # Initialize the shaded rectangle
