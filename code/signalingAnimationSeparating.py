@@ -19,7 +19,7 @@ p = 0.25
 aBar = p*aH+(1-p)*aL
 
 eMin = 0
-eMax = 37
+eMax = 34
 eStep = 0.05
 # eStep=0.05
 
