@@ -57,7 +57,7 @@ yMinL,yMaxL = -10,33
 
 # Set up formatting for the movie files
 Writer = animation.writers['ffmpeg']
-writer = Writer(fps=6, metadata=dict(artist='Brian C Jenkins'), bitrate=1000)
+writer = Writer(fps=6, metadata=dict(artist='Brian C Jenkins'), bitrate=5000)
 
 fig = plt.figure(figsize=(16,9))
 ax1 = fig.add_subplot(2, 1, 1)
