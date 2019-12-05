@@ -73,7 +73,7 @@ lineH3, = ax1.plot([], [],'ok', lw=4)
 lineH4, = ax1.plot([], [],'ok', lw=4,markerfacecolor='none')
 ax1.set_ylim(yMinH,yMaxH)
 ax1.set_ylabel('\n\n')
-ax1.legend(['$\\bar{m}e - k_H e^2$','$m_L e - k_H e^2$','$u_H(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
+ax1.legend(['$\\bar{m}e - c_H e^2$','$m_L e - c_H e^2$','$u_H(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
 ax1.set_title('Type H Worker Utility ($u_H)$',fontsize=20,pad = 10)
 
 # Initialize the shaded rectangle
@@ -114,7 +114,7 @@ lineL4, = ax2.plot([], [],'ok', lw=4,markerfacecolor='none')
 ax2.set_ylim(yMinL,yMaxL)
 ax2.set_xlabel('Level of education ($e$)')
 ax2.set_ylabel('\n\n')
-ax2.legend(['$\\bar{m}e - k_L e^2$','$m_L e - k_L e^2$','$u_L(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
+ax2.legend(['$\\bar{m}e - c_L e^2$','$m_L e - c_L e^2$','$u_L(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
 ax2.set_title('Type L Worker Utility ($u_L)$',fontsize=20,pad = 10)
 
 

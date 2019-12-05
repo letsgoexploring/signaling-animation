@@ -59,7 +59,7 @@ ax1.set_xlim(eMin, eMax)
 ax1.set_ylim(yMinH,yMaxH)
 ax1.set_xlabel('Level of education ($e$)')
 ax1.set_ylabel('\n\n')
-ax1.legend(['$m_He - k_H e^2$','$m_L e - k_L e^2$','$u_L(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
+ax1.legend(['$m_He - c_H e^2$','$m_L e - c_L e^2$','$u_L(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
 ax1.set_title('Type H Worker Utility ($u_H)$',fontsize=20,pad = 10)
 
 # Initialize the shaded rectangle

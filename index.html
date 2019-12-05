@@ -72,19 +72,19 @@
       <h4>The Model</h4>
 
       <p>Suppose that there are two types of workers: type <em>H</em> and type <em>L</em>. Type <em>H</em> workers are more productive than type <em>L</em> workers <em>and</em> type <em>H</em> workers find it less costly to obtain a given level of education <em>e</em>. Specifically, the marginal products of labor for each type of worker is:
-        $$m_H(e) = a_H e$$
-        $$m_L(e) = a_L e,$$
-      where \(a_L < a_H\) are constants. And the costs to each type of obtaining a given level of education \(e\) is:
-        $$c_H(e) = k_H e^2$$
-        $$c_L(e) = k_L e^2,$$
-      where \(k_L > k_H\). A worker's type is only observable by the worker but the amount of education a worker obtains <em>is</em> observed by a potential employer. So while a worker's wage cannot depend directly on that worker's type, the wage can be a function of that worker's chosen level of education. We consider two classes of equilibria: Pooling and separating.</p>
+        $$m_H(e) = m_H e$$
+        $$m_L(e) = m_L e,$$
+      where \(m_L < m_H\) are constants. And the costs to each type of obtaining a given level of education \(e\) is:
+        $$c_H(e) = c_H e^2$$
+        $$c_L(e) = c_L e^2,$$
+      where \(c_L > c_H\). A worker's type is only observable by the worker but the amount of education a worker obtains <em>is</em> observed by a potential employer. So while a worker's wage cannot depend directly on that worker's type, the wage can be a function of that worker's chosen level of education. We consider two classes of equilibria: Pooling and separating.</p>
 
     <h4>Pooling Equilibria</h4>
 
     <p>A <strong>pooling equilibrium</strong> in ths model is a threshold value of education \(\bar{e}\) such that:
       <ol>
-        <li>If a worker obtains \(e<\bar{e}\) units of education, then employers <em>believe</em> that worker is type L and pay that worker a wage \(w(e) = a_Le\).</li>
-        <li>If a worker obtains \(e\geqslant\bar{e}\) units of education, then employers <em>believe</em> that worker is type H with probability \(p\) and pay that worker a wage \(w(\bar{e}) = \bar{a} \bar{e} = \left( pa_H + (1-p)a_L\right)\bar{e} \).</li>
+        <li>If a worker obtains \(e<\bar{e}\) units of education, then employers <em>believe</em> that worker is type L and pay that worker a wage \(w(e) = m_Le\).</li>
+        <li>If a worker obtains \(e\geqslant\bar{e}\) units of education, then employers <em>believe</em> that worker is type H with probability \(p\) and pay that worker a wage \(w(\bar{e}) = \bar{m} \bar{e} = \left( pm_H + (1-p)m_L\right)\bar{e} \).</li>
       </ol>
     </p>
 
@@ -101,8 +101,8 @@
 
     <p>A <strong>pooling equilibrium</strong> in ths model is a threshold value of education \(\bar{e}\) such that:
       <ol>
-        <li>If a worker obtains \(e<\bar{e}\) units of education, then employers <em>believe</em> that worker is type L and pay that worker a wage \(w(e) = a_Le\).</li>
-        <li>If a worker obtains \(e\geqslant\bar{e}\) units of education, then employers <em>believe</em> that worker is type H and pay that worker a wage \(w(e) = a_H e  \).</li>
+        <li>If a worker obtains \(e<\bar{e}\) units of education, then employers <em>believe</em> that worker is type L and pay that worker a wage \(w(e) = m_Le\).</li>
+        <li>If a worker obtains \(e\geqslant\bar{e}\) units of education, then employers <em>believe</em> that worker is type H and pay that worker a wage \(w(e) = m_H e  \).</li>
       </ol>
     </p>
 
@@ -117,7 +117,7 @@
 
     <h4>Notes on the simulations</h4>
 
-    <p> For the animated figures above, I used the following parameter values: \(\alpha_L = 4\), \(\alpha_H = 8\), \(k_L = 0.5\), \(k_H = 0.25\), and \(p = 0.25\). For the pooling equilibrium animation, I computed equilibria for \(e \in[0,19]\). And for the separating equilibrium animation, I computed equilibria for \(e \in[0,34]\). The Python code that I used to create these animations is available in <a href="https://github.com/letsgoexploring/signaling-animation">this Github repository</a>.
+    <p> For the animated figures above, I used the following parameter values: \(\alphm_L = 4\), \(\alphm_H = 8\), \(c_L = 0.5\), \(c_H = 0.25\), and \(p = 0.25\). For the pooling equilibrium animation, I computed equilibria for \(e \in[0,19]\). And for the separating equilibrium animation, I computed equilibria for \(e \in[0,34]\). The Python code that I used to create these animations is available in <a href="https://github.com/letsgoexploring/signaling-animation">this Github repository</a>.
   
 
   
