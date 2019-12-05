@@ -8,6 +8,8 @@ import matplotlib.patches as patches
 import matplotlib.path as path
 import subprocess
 
+plt.style.use('classic')
+
 # Parameters for animation
 aL=4
 cH=0.25
@@ -48,17 +50,17 @@ writer = Writer(fps=6, metadata=dict(artist='Brian C Jenkins'), bitrate=1000)
 fig = plt.figure(figsize=(16,9))
 ax1 = fig.add_subplot(1, 1, 1)
 ax1.grid()
-plt.plot(eRange,uHighL,'--',lw=2)
-plt.plot(eRange,uLowL,'--',lw=2)
+plt.plot(eRange,uHighL,'--',lw=2,color='b')
+plt.plot(eRange,uLowL,'--',lw=2,color='r')
 line1, = ax1.plot([], [],'k', lw=3)
 line2, = ax1.plot([], [],'k', lw=3)
 line3, = ax1.plot([], [],'ok', lw=4)
 ax1.set_xlim(eMin, eMax)
 ax1.set_ylim(yMinL,yMaxL)
 ax1.set_xlabel('Level of education ($e$)')
-ax1.set_ylabel('Utility ($u_L$)')
-plt.legend(['$a_He - k_L e^2$','$a_L e - k_L e^2$','$u_L(e)$'],loc='upper right',fontsize=20)
-ax1.set_title('Utility for a Type L Worker',fontsize=20)
+ax1.set_ylabel('\n\n')
+ax1.legend(['$m_He - k_L e^2$','$m_L e - k_L e^2$','$u_L(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
+ax1.set_title('Type L Worker Utility ($u_L)$',fontsize=20,pad = 10)
 
 # Initialize the shaded rectangle
 left = 0
@@ -84,6 +86,7 @@ rectPath = path.Path(verts, codes)
 patch = patches.PathPatch(rectPath, facecolor='green', edgecolor='green', alpha=0.5)
 ax1.add_patch(patch)
 
+fig.tight_layout()
 
 ##########################################
 z,n=10000,0

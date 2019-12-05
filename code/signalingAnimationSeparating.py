@@ -8,6 +8,8 @@ import matplotlib.patches as patches
 import matplotlib.path as path
 import subprocess
 
+plt.style.use('classic')
+
 # Parameters for animation
 aL=4
 cH=0.25
@@ -62,23 +64,22 @@ writer = Writer(fps=6, metadata=dict(artist='Brian C Jenkins'), bitrate=5000)
 fig = plt.figure(figsize=(16,9))
 ax1 = fig.add_subplot(2, 1, 1)
 ax1.grid()
-plt.plot(eRange,uHighH,'--',lw=2)
-plt.plot(eRange,uLowH,'--',lw=2)
+plt.plot(eRange,uHighH,'--',lw=2,color='b')
+plt.plot(eRange,uLowH,'--',lw=2,color='r')
 lineH1, = ax1.plot([], [],'k', lw=3)
 lineH2, = ax1.plot([], [],'k', lw=3)
 lineH3, = ax1.plot([], [],'ok', lw=4)
 lineH4, = ax1.plot([], [],'ok', lw=4,markerfacecolor='none')
 ax1.set_xlim(eMin, eMax)
 ax1.set_ylim(yMinH,yMaxH)
-# ax1.set_xlabel('Level of education ($e$)')
-ax1.set_ylabel('Utility ($u_H$)')
-plt.legend(['$a_He - k_H e^2$','$a_L e - k_H e^2$','$u_H(e)$'],loc='lower left',ncol=3,fontsize=20)
-ax1.set_title('Type H Worker',fontsize=20)
+ax1.set_ylabel('\n\n')
+ax1.legend(['$m_He - k_H e^2$','$m_L e - k_H e^2$','$u_H(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
+ax1.set_title('Type H Worker Utility ($u_H)$',fontsize=20,pad = 10)
 
 ax2 = fig.add_subplot(2, 1, 2)
 ax2.grid()
-plt.plot(eRange,uHighL,'--',lw=2)
-plt.plot(eRange,uLowL,'--',lw=2)
+plt.plot(eRange,uHighL,'--',lw=2,color='b')
+plt.plot(eRange,uLowL,'--',lw=2,color='r')
 lineL1, = ax2.plot([], [],'k', lw=3)
 lineL2, = ax2.plot([], [],'k', lw=3)
 lineL3, = ax2.plot([], [],'ok', lw=4)
@@ -86,10 +87,9 @@ lineL4, = ax2.plot([], [],'ok', lw=4,markerfacecolor='none')
 ax2.set_xlim(eMin, eMax)
 ax2.set_ylim(yMinL,yMaxL)
 ax2.set_xlabel('Level of education ($e$)')
-ax2.set_ylabel('Utility ($u_L$)')
-plt.legend(['$a_He - k_L e^2$','$a_L e - k_L e^2$','$u_L(e)$'],loc='lower left',ncol=3,fontsize=20)
-ax2.set_title('Type L Worker',fontsize=20)
-# plt.show()
+ax2.set_ylabel('\n\n')
+ax2.legend(['$m_He - k_L e^2$','$m_L e - k_L e^2$','$u_L(e)$'],ncol=1,fontsize=20,loc='center left', bbox_to_anchor=(1, 0.5))
+ax2.set_title('Type L Worker Utility ($u_L)$',fontsize=20,pad = 10)
 
 # Initialize the shaded rectangle
 left = 0
@@ -137,7 +137,8 @@ rectPathH = path.Path(vertsH, codesH)
 patch = patches.PathPatch(rectPathH, facecolor='red', edgecolor='red', alpha=0.5)
 ax1.add_patch(patch)
 
-
+fig.tight_layout()
+fig.subplots_adjust(hspace=.25)
 
 ##########################################
 z,n=10000,0
